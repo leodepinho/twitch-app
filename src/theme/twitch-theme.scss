@@ -1,0 +1,168 @@
+/* You can add global styles to this file, and also import other style files */
+@import "variables";
+@import "mixins";
+@import "~ngx-smart-modal/ngx-smart-modal";
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: map_get($colors,tertiary-background);
+  font-family: 'Lato','Helvetica','Corbel',sans-serif;
+}
+.main-container {
+  padding-top: $navbar-height;
+}
+.tt-absolute {
+  position: absolute;
+}
+.tt-relative {
+  position: relative;
+}
+.tt-pos-fixed {
+  position: fixed;
+}
+.tt-inline-block {
+  display: inline-block;
+}
+.tt-flex {
+  @include flexbox();
+}
+.tt-flex-nowrap {
+  @include flex-wrap(nowrap);
+}
+.tt-flex-shrink-0 {
+  @include flex-shrink(0);
+}
+.tt-flex-grow-0 {
+  @include flex-grow(0);
+}
+.tt-flex-shrink-1 {
+  @include flex-shrink(1);
+}
+.tt-flex-grow-1 {
+  @include flex-grow(1);
+}
+.tt-mg-08 {
+  margin: 0.8rem;
+}
+.tt-mg-05 {
+  margin: 0.5rem;
+}
+.tt-mg-x-1 {
+  margin: 1rem 0;
+}
+.tt-mg-r-1 {
+  margin-right: 1rem;
+}
+.tt-pd-t-1 {
+  padding-top: 1rem;
+}
+.tt-pd-t-05 {
+  padding-top: 0.5rem;
+}
+.tt-pd-r-1 {
+  padding-right: 1rem;
+}
+.tt-pd-x-1 {
+  padding: 1rem 0;
+}
+.tt-left-0 {
+  left: 0;
+}
+.tt-top-0 {
+  top: 0;
+}
+.tt-bottom-0 {
+  bottom: 0;
+}
+.tt-right-0 {
+  right: 0;
+}
+.tt-align-items-center {
+  @include align-items(center);
+}
+.tt-align-items-start {
+  @include align-items(flex-start);
+}
+.tt-justify-content-center {
+  @include justify-content(center);
+}
+.tt-justify-content-start {
+  @include justify-content(flex-start);
+}
+.min-width-0 {
+  min-width: 0;
+}
+.bg-primary {
+  background-color: map_get($colors,primary-background);
+}
+.bg-tertiary {
+  background-color: map_get($colors,tertiary-background);
+}
+// Overwrite NgxSmartModal
+.nsm-content {
+  padding: 0;
+}
+.nsm-dialog-btn-close {
+  display: none;
+}
+.overlay {
+  @include flexbox();
+  @include align-items(center);
+}
+// CUSTOM MODAL
+.custom-modal-window {
+  .modal-header {
+    padding: 1.5em;
+    background-color: map_get($colors,twitch);
+  }
+  .modal-body {
+    padding: 1.5em;
+  }
+  .modal-content {
+    @include border-radius(6px);
+    @include box-shadow(0, 2px, 100px, 0, rgba(0,0,0,0.3));
+    border: none;
+  }
+
+  .modal-title {
+    margin: 0;
+    font-family: 'Roboto-Slab Light', serif;;
+    color: white;
+    font-size: 30px;
+  }
+
+  .close {
+    margin-right: 1.5em;
+    border: none;
+    padding: 0;
+    height: 45px;
+    width: 45px;
+    background-color: map_get($colors,primary-background);
+    opacity: 1;
+    @include border-radius(50%);
+
+    span {
+      display: none;
+    }
+  }
+  .close:focus {
+    outline: none;
+  }
+  .close:hover {
+    background-color: map_get($colors,twitch-hover);
+    @include transition(background-color,.6s,ease-in);
+  }
+
+  .close::before {
+    font-family: "FontAwesome";
+    content: "\f00d";
+    text-align: center;
+    line-height: 45px;
+    color: map_get($colors,twitch);
+  }
+
+  .close:hover::before {
+    color: map_get($colors,primary-background);
+    @include transition(color,.4s,ease-in);
+  }
+}

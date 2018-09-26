@@ -1,0 +1,38 @@
+<div class="card-container client" (click)="cardClicked(stream.channel.display_name)">
+  <div class="card-preview tt-relative">
+    <img src="{{stream.preview.large}}">
+    <div class="top-left-selector tt-absolute tt-left-0 tt-top-0 tt-mg-08">
+      <div class="tt-flex tt-align-items-center">
+        <div class="indicator tt-inline-block"></div>
+        <span>LIVE</span>
+      </div>
+    </div>
+    <div class="bottom-left-selector tt-absolute tt-left-0 tt-bottom-0 tt-mg-05">
+      <div class="tt-flex tt-align-items-center">
+        <span>{{stream.viewers}} viewers</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-description tt-flex tt-flex-nowrap tt-pd-t-05">
+    <div class="tt-flex-shrink-0 tt-flex-grow-0">
+      <a>
+        <div class="logo tt-mg-05">
+          <img src="{{stream.channel.logo}}">
+        </div>
+      </a>
+    </div>
+    <div class="tt-flex-grow-1 tt-flex-shrink-1 min-width-0 tt-mg-05">
+      <a>
+        <h3 title="{{stream.channel.status}}">{{stream.channel.status}}</h3>
+      </a>
+      <div class="subtitles">
+        <div class="card-subtitle">
+          <p>{{stream.channel.display_name}}</p>
+        </div>
+        <div class="card-subtitle">
+          <p>{{stream.channel.game}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

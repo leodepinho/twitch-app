@@ -1,0 +1,14 @@
+@import "~src/theme/mixins";
+.container {
+  color: white;
+  @include flex-direction(column);
+
+  .caption {
+    font-size: 2em;
+    line-height: 0.5;
+    .material-icons {
+      font-size: 2em;
+    }
+  }
+}
+

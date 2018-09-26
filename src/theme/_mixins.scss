@@ -1,0 +1,131 @@
+//Cross browser CSS3 mixins
+@mixin box-shadow($h-offset, $v-offset, $blur, $spread, $color) {
+  box-shadow: $h-offset $v-offset $blur $spread $color;
+  -webkit-box-shadow: $h-offset $v-offset $blur $spread $color;
+  -moz-box-shadow: $h-offset $v-offset $blur $spread $color;
+}
+@mixin box-shadow-multiple($h-offset-1, $v-offset-1, $blur-1, $spread-1, $color-1, $h-offset-2, $v-offset-2, $blur-2, $spread-2, $color-2) {
+  box-shadow: $h-offset-1 $v-offset-1 $blur-1 $spread-1 $color-1, $h-offset-2 $v-offset-2 $blur-2 $spread-2 $color-2;
+  -webkit-box-shadow: $h-offset-1 $v-offset-1 $blur-1 $spread-1 $color-1, $h-offset-2 $v-offset-2 $blur-2 $spread-2 $color-2;
+  -moz-box-shadow: $h-offset-1 $v-offset-1 $blur-1 $spread-1 $color-1, $h-offset-2 $v-offset-2 $blur-2 $spread-2 $color-2;
+}
+@mixin transition($property, $duration, $easing: linear) {
+  transition: $property $duration $easing;
+  -webkit-transition: $property $duration $easing;
+  -moz-transition: $property $duration $easing;
+}
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+}
+@mixin box-align($position) {
+  box-align: $position;
+  -moz-box-align: $position;
+  -webkit-box-align: $position;
+}
+@mixin box-pack($position) {
+  box-pack: $position;
+  -moz-box-pack: $position;
+  -webkit-box-pack: $position;
+}
+@mixin box-orient($position) {
+  -moz-box-orient: $position;
+  -webkit-box-orient: $position;
+  box-orient: $position;
+}
+@mixin box-direction($position) {
+  -moz-box-direction: $position;
+  -webkit-box-direction: $position;
+  box-direction: $position;
+}
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+  -moz-justify-content: $justify;
+  -ms-justify-content: $justify;
+  justify-content: $justify;
+  -ms-flex-pack: $justify;
+}
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin flex-grow($grow) {
+  -webkit-flex-grow: $grow;
+  -moz-flex-grow: $grow;
+  -ms-flex-grow: $grow;
+  flex-grow: $grow;
+}
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number>
+@mixin flex-shrink($shrink) {
+  -webkit-flex-shrink: $shrink;
+  -moz-flex-shrink: $shrink;
+  -ms-flex-shrink: $shrink;
+  flex-shrink: $shrink;
+}
+// Flexbox display
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+  -moz-align-items: $align;
+  -ms-align-items: $align;
+  align-items: $align;
+}
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}

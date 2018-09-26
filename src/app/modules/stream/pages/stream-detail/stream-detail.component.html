@@ -1,0 +1,46 @@
+<div class="tt-pd-x-1 bg-tertiary">
+  <div class="detail-container bg-primary">
+    <div class="video-container">
+      <div class="iframe">
+        <iframe
+          [src]="videoUrl | safe"
+          width="100%"
+          frameborder="0"
+          scrolling="no"
+          allowfullscreen="true">
+        </iframe>
+      </div>
+      <div class="card-description tt-flex tt-flex-nowrap tt-pd-t-05">
+        <div class="tt-flex-shrink-0 tt-flex-grow-0">
+          <a>
+            <div class="logo tt-mg-05">
+              <img src="{{stream?.channel.logo}}">
+            </div>
+          </a>
+        </div>
+        <div class="tt-flex-grow-1 tt-flex-shrink-1 min-width-0 tt-mg-05">
+          <a>
+            <h3 title="{{stream?.channel.status}}">{{stream?.channel.status}}</h3>
+          </a>
+          <div class="subtitles">
+            <div class="card-subtitle viewers">
+              <p><i class="material-icons">visibility</i>   {{stream?.viewers}}</p>
+            </div>
+            <div class="card-subtitle">
+              <p>{{stream?.channel.display_name}} - {{stream?.channel.game}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-container">
+      <iframe frameborder="0"
+              scrolling="no"
+              id="chat_embed"
+              [src]="chatUrl | safe"
+              width="100%"
+              height="100%">
+      </iframe>
+    </div>
+  </div>
+</div>

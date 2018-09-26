@@ -1,0 +1,59 @@
+<div class="search-wrapper tt-pos-fixed tt-left-0 tt-top-0 tt-right-0">
+  <nav class="header-wrapper">
+    <div class="header-content tt-flex tt-align-items-center tt-justify-content-start">
+      <i class="close-searchbar material-icons" (click)="showPopUp(false)">clear</i>
+      <div class="searchWrapper">
+        <div class="searchBackground tt-align-items-center tt-flex">
+          <div class="searchBoxContainer tt-align-items-center tt-flex" (click)="showPopUp(true)">
+            <i class="material-icons">search</i>
+            <form class="navItem tt-flex-grow-1" action="/search">
+              <input type="hidden" name="referer" value="/">
+              <input type="hidden" name="page_search_query" value="">
+              <div class="input-wrapper">
+                <input type="text" (keyup)="getSearchItem($event.target.value)" class="searchInput" [(ngModel)]="streamRequest.query" name="query" autocomplete="off" placeholder="Search for streams" aria-label="Search for streams">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <i class="filters material-icons" (click)="filtersModal.open()">filter_list</i>
+    </div>
+  </nav>
+</div>
+<div class="popupContainer tt-left-0 tt-right-0 tt-pos-fixed" *ngIf="showSearchPopUp" [@fadeInOut]>
+  <main class="cards tt-flex tt-align-items-start tt-justify-content-center tt-justify-content-center">
+    <div class="search-header">
+      Top Results
+    </div>
+    <ng-container *ngIf="streams.length > 0; else emptyList">
+      <ng-container *ngFor="let stream of streams">
+        <app-stream-card (clicked)="goToDetail($event)" [stream]="stream"></app-stream-card>
+      </ng-container>
+    </ng-container>
+    <ng-template #emptyList>
+      <h1>No results</h1>
+    </ng-template>
+  </main>
+</div>
+<ngx-smart-modal customClass="modal-content no-padding" #filtersModal identifier="filtersModal">
+  <div class="filter-container custom-modal-window">
+    <div class="modal-header tt-flex tt-align-items-center">
+      <h4 class="modal-title pl-3" id="modal-basic-title">Filters</h4>
+      <button type="button" class="close tt-absolute tt-right-0" aria-label="Close" (click)="filtersModal.close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="filtersForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="limit">Number of results</label>
+          <input type="number" class="form-control" id="limit" name="limit" formControlName="limit" required [(ngModel)]="streamRequest.limit">
+        </div>
+        <div class="tt-pd-t-1">
+          <button type="submit" class="btn btn-success" [disabled]="!filtersForm.valid">Apply</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ngx-smart-modal>
+
