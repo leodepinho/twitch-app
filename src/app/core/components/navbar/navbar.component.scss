@@ -30,7 +30,7 @@
         color: map_get($colors,light-blue);
       }
 
-      .searchWrapper {
+      .search-input-wrapper {
         padding: 10px 0;
         margin: 0 32px;
         width: 100%;
@@ -38,7 +38,7 @@
         height: 100%;
         max-width: none;
 
-        .searchBackground {
+        .search-background {
           @include flex(1);
           @include flex-direction(row);
           @include box-orient(horizontal);
@@ -47,19 +47,19 @@
           height: 40px;
           border-radius: 4px;
 
-          .searchBoxContainer {
+          .searchbox-container {
             @include flex(1);
             @include box-align(center);
             padding: 0 10px;
 
-            .navItem {
+            .search-form {
               font-family: inherit;
               font-size: 16px;
               font-weight: 700;
               text-decoration: none;
               line-height: 20px;
 
-              .searchInput {
+              .search-input {
                 padding-left: 20px;
                 border: none;
                 font-family: inherit;
