@@ -15,13 +15,12 @@
     .caption {
       height: 100%;
       @include flex-direction(column);
-      top: calc(-#{$navbar-height}/2);
       width: 100%;
       text-align: center;
       color: black;
 
       img {
-        margin: 1em;
+        margin: 2em;
         width: 300px;
       }
 

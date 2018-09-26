@@ -42,7 +42,11 @@ export class NavbarComponent implements OnInit {
   /**
    * Show/Hide search popup
    */
-  showSearchPopUp: boolean;
+  showSearchPopUp = false;
+  /**
+   * Show/Hide search bar
+   */
+  showSearchBar = false;
   /**
    * Subscription to manage changes in the search input
    */
@@ -143,5 +147,8 @@ export class NavbarComponent implements OnInit {
       // @ts-ignore
       this.mainContainer.style = 'overflow-y: scroll';
     }
+  }
+  showPrimaryBar(value: boolean) {
+    this.showSearchBar = value;
   }
 }

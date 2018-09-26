@@ -3,8 +3,6 @@
 // Navbar
 .search-wrapper {
   background-color: map_get($colors,primary-background);
-  border-top: 1px solid map_get($colors,light-grey);
-  border-bottom: 1px solid map_get($colors,light-grey);
   @include box-sizing(border-box);
   height: $navbar-height;
   z-index: 1000;
@@ -37,6 +35,10 @@
         @include box-sizing(border-box);
         height: 100%;
         max-width: none;
+
+        @media only screen and (max-width: 768px) {
+          margin: 0;
+        }
 
         .search-background {
           @include flex(1);
@@ -90,8 +92,78 @@
     }
   }
 }
+.primary-search-wrapper {
+  background-color: map_get($colors,twitch);
+  @include box-sizing(border-box);
+  height: $navbar-height;
+  z-index: 1000;
+  .header-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (min-width: $large-screen-width) {
+      max-width: 80%;
+    }
+
+    .header-content {
+      height: 100%;
+      .logo {
+        margin: 1em 2em;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .search-button {
+        padding: 10px 0;
+        margin: 0 32px;
+        width: 200px;
+        @include box-sizing(border-box);
+        height: 100%;
+
+        .nav-item {
+          color: white;
+          font-family: inherit;
+          font-size: 15px;
+          font-weight: bold;
+          text-decoration: none;
+          @include flexbox();
+          @include flex-direction(row);
+          @include flex(1);
+          @include border-radius(4px);
+          @include align-items(center);
+          @include box-orient(horizontal);
+          @include box-direction(normal);
+          height: 40px;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .searchbox-container {
+            @include flexbox();
+            @include flex(1);
+            @include align-items(center);
+            @include box-align(center);
+            padding: 0 10px;
+
+            .inactive-search {
+              font-size: 16px;
+              line-height: 20px;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
 // Search Popup
-.popupContainer {
+.popup-container {
   background-color: map_get($colors,secondary-background);
   border-top: 1px solid map_get($colors,light-grey);
   height: -moz-calc(100vh - #{$navbar-height});
@@ -101,7 +173,7 @@
   overflow-y: scroll;
   z-index: 10;
 
-  .cards {
+  .cards-container {
     margin: auto;
     @include flex-wrap(wrap);
     padding: 1em 2em;
