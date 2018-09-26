@@ -150,5 +150,8 @@ export class NavbarComponent implements OnInit {
   }
   showPrimaryBar(value: boolean) {
     this.showSearchBar = value;
+    if (!this.showSearchBar && this.showSearchPopUp) {
+      this.showPopUp(false);
+    }
   }
 }
